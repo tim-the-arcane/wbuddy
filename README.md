@@ -42,5 +42,5 @@ make buildwin
 
 ### Todos
 
-- [ ] Fix location strings with spaces not working
 - [ ] Extend README.md
+- [x] Fix location strings with spaces not working

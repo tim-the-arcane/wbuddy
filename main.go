@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"net/url"
 	"os"
 	"time"
 )
@@ -51,12 +52,16 @@ func main() {
 	q := "Heilbronn"
 
 	if len(os.Args) > 1 {
-		q = os.Args[1]
+		q = ""
+
+		for _, arg := range os.Args[1:] {
+			q += " " + arg
+		}
 	}
 
 	var posts WeatherResponse
 
-	err := GetJson("https://api.weatherapi.com/v1/forecast.json?key="+apiKey+"&q="+q+"&aqi=no", &posts)
+	err := GetJson("https://api.weatherapi.com/v1/forecast.json?key="+apiKey+"&q="+url.QueryEscape(q)+"&aqi=no", &posts)
 
 	if err != nil {
 		panic(err)
