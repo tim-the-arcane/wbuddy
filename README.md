@@ -1,5 +1,7 @@
 # Weather Buddy
 
+A simple CLI written in Go that fetches the current weather from weatherapi.com
+
 ## Installation
 
 ```bash
